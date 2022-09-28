@@ -1,11 +1,8 @@
-﻿using BugTracking.Core.Common;
+﻿namespace BugTracking.Core.Entities;
 
-namespace BugTracking.Core.Entities
+public class Board : BaseAuditableEntity
 {
-    public class Board : BaseAuditableEntity
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public IList<Bug> Bugs { get; set; }
-    }
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public IList<Bug> Bugs { get; set; }
 }

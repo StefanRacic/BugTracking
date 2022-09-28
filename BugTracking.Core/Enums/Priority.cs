@@ -1,10 +1,9 @@
-﻿namespace BugTracking.Core.Enums
+﻿namespace BugTracking.Core.Enums;
+
+public enum Priority
 {
-    public enum Priority
-    {
-        None = 0,
-        Low = 1,
-        Medium = 2,
-        High = 3
-    }
+    None = 0,
+    Low = 1,
+    Medium = 2,
+    High = 3
 }

@@ -1,9 +1,8 @@
-﻿namespace BugTracking.Core.Enums
+﻿namespace BugTracking.Core.Enums;
+
+public enum Status
 {
-    public enum Status
-    {
-        ToDo = 0,
-        InProgress = 1,
-        Done = 2
-    }
+    ToDo = 0,
+    InProgress = 1,
+    Done = 2
 }
