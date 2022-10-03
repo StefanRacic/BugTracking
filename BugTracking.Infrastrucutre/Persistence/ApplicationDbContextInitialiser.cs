@@ -1,31 +1,30 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace BugTracking.Infrastrucutre.Persistence
+namespace BugTracking.Infrastrucutre.Persistence;
+
+public class ApplicationDbContextInitialiser
 {
-    public class ApplicationDbContextInitialiser
+    private readonly ILogger<ApplicationDbContextInitialiser> _logger;
+    private readonly ApplicationDbContext _context;
+
+    public ApplicationDbContextInitialiser(ILogger<ApplicationDbContextInitialiser> logger, ApplicationDbContext context)
     {
-        private readonly ILogger<ApplicationDbContextInitialiser> _logger;
-        private readonly ApplicationDbContext _context;
+        _logger = logger;
+        _context = context;
+    }
 
-        public ApplicationDbContextInitialiser(ILogger<ApplicationDbContextInitialiser> logger, ApplicationDbContext context)
+    public async Task InitialAsync()
+    {
+        try
         {
-            _logger = logger;
-            _context = context;
+            if (_context.Database.IsSqlServer())
+                await _context.Database.MigrateAsync();
         }
-
-        public async Task InitialAsync()
+        catch (Exception ex)
         {
-            try
-            {
-                if (_context.Database.IsSqlServer())
-                    await _context.Database.MigrateAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "An error occurred while initialising the database.");
-                throw;
-            }
+            _logger.LogError(ex, "An error occurred while initialising the database.");
+            throw;
         }
     }
 }
