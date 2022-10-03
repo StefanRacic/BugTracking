@@ -8,11 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="11.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BugTracking.Core\BugTracking.Core.csproj" />
+    <ProjectReference Include="..\BugTracking.Dto\BugTracking.Dto.csproj" />
   </ItemGroup>
 
   <ItemGroup>

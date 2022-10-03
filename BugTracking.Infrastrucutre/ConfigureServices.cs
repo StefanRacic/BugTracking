@@ -2,9 +2,8 @@
 using BugTracking.Infrastrucutre.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace BugTracking.Infrastrucutre;
+namespace Microsoft.Extensions.DependencyInjection;
 
 public static class ConfigureServices
 {

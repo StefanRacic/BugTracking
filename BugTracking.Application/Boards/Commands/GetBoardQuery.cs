@@ -1,6 +1,6 @@
-﻿using BugTracking.Core.Entities;
+﻿using BugTracking.Dto.Board;
 using MediatR;
 
 namespace BugTracking.Application.Boards.Commands;
 
-public record GetBoardQuery(int Id) : IRequest<Board>;
+public record GetBoardQuery(int Id) : IRequest<BoardDto>;
